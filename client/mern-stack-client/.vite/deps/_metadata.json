@@ -1,8 +1,121 @@
 {
-  "hash": "519df99c",
+  "hash": "468a2853",
   "configHash": "a1785d19",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "867ebc01",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "72e3190b",
+  "browserHash": "8f71a75d",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "6de7a2cd",
+      "needsInterop": true
+    },
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "fc753283",
+      "needsInterop": false
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "0733790d",
+      "needsInterop": false
+    },
+    "redux": {
+      "src": "../../node_modules/redux/dist/redux.mjs",
+      "file": "redux.js",
+      "fileHash": "7163c81b",
+      "needsInterop": false
+    },
+    "redux-thunk": {
+      "src": "../../node_modules/redux-thunk/dist/redux-thunk.mjs",
+      "file": "redux-thunk.js",
+      "fileHash": "61325407",
+      "needsInterop": false
+    },
+    "@material-ui/core": {
+      "src": "../../node_modules/@material-ui/core/esm/index.js",
+      "file": "@material-ui_core.js",
+      "fileHash": "f2360731",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "d0e316ef",
+      "needsInterop": true
+    },
+    "@material-ui/core/styles": {
+      "src": "../../node_modules/@material-ui/core/esm/styles/index.js",
+      "file": "@material-ui_core_styles.js",
+      "fileHash": "18fdab47",
+      "needsInterop": false
+    },
+    "react-file-base64": {
+      "src": "../../node_modules/react-file-base64/build/build.min.js",
+      "file": "react-file-base64.js",
+      "fileHash": "4a04bac9",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "3f9d805d",
+      "needsInterop": false
+    },
+    "@material-ui/icons/Delete": {
+      "src": "../../node_modules/@material-ui/icons/Delete.js",
+      "file": "@material-ui_icons_Delete.js",
+      "fileHash": "bca3be76",
+      "needsInterop": true
+    },
+    "@material-ui/icons/MoreHoriz": {
+      "src": "../../node_modules/@material-ui/icons/MoreHoriz.js",
+      "file": "@material-ui_icons_MoreHoriz.js",
+      "fileHash": "420015da",
+      "needsInterop": true
+    },
+    "@material-ui/icons/ThumbUpAlt": {
+      "src": "../../node_modules/@material-ui/icons/ThumbUpAlt.js",
+      "file": "@material-ui_icons_ThumbUpAlt.js",
+      "fileHash": "fc40ce62",
+      "needsInterop": true
+    },
+    "moment": {
+      "src": "../../node_modules/moment/dist/moment.js",
+      "file": "moment.js",
+      "fileHash": "5cc74427",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-J6FYF3Y6": {
+      "file": "chunk-J6FYF3Y6.js"
+    },
+    "chunk-65JG2JFT": {
+      "file": "chunk-65JG2JFT.js"
+    },
+    "chunk-H2LMNMBX": {
+      "file": "chunk-H2LMNMBX.js"
+    },
+    "chunk-QU23G4KN": {
+      "file": "chunk-QU23G4KN.js"
+    },
+    "chunk-KOABQC56": {
+      "file": "chunk-KOABQC56.js"
+    },
+    "chunk-5CDCF4C7": {
+      "file": "chunk-5CDCF4C7.js"
+    },
+    "chunk-Q6PC4NAJ": {
+      "file": "chunk-Q6PC4NAJ.js"
+    },
+    "chunk-XRMR5KPY": {
+      "file": "chunk-XRMR5KPY.js"
+    },
+    "chunk-WGAPYIUP": {
+      "file": "chunk-WGAPYIUP.js"
+    }
+  }
 }
