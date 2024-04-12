@@ -3,16 +3,21 @@ import {
   createPost,
   deletePost,
   getPosts,
+  likePost,
   updatePost,
-  likePost
+  getPostsBySearch
 } from "../controllers/posts.js";
+
+import auth from "../middleware/auth.js";
+
 const router = express.Router();
 
 router
   .get("/", getPosts)
-  .post("/", createPost)
-  .patch("/:id", updatePost)
-  .delete("/:id", deletePost)
-  .patch('/:id/likePost', likePost)
+  .post("/", auth, createPost)
+  .patch("/:id", auth, updatePost)
+  .delete("/:id", auth, deletePost)
+  .patch("/:id/likePost", auth, likePost)
+  .get('/search', getPostsBySearch)
 
 export default router;
