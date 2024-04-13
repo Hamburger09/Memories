@@ -2,7 +2,9 @@ const CREATE = "CREATE";
 const UPDATE = "UPDATE";
 const DELETE = "DELETE";
 const FETCH_ALL = "FETCH_ALL";
+const FETCH_POST = "FETCH_POST";
 const FETCH_BY_SEARCH = "FETCH_BY_SEARCH";
+const COMMENT = "COMMENT";
 
 const AUTH = "AUTH";
 const LOGOUT = "LOGOUT";
@@ -20,4 +22,6 @@ export {
   LOGOUT,
   START_LOADING,
   UPDATE,
+  FETCH_POST,
+  COMMENT
 };

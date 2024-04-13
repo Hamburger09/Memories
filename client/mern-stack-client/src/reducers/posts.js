@@ -4,8 +4,10 @@ import {
   END_LOADING,
   FETCH_ALL,
   FETCH_BY_SEARCH,
+  FETCH_POST,
   START_LOADING,
   UPDATE,
+  COMMENT
 } from "../constants/actionTypes";
 
 const reducer = (state = { isLoading: true, posts: [] }, action) => {
@@ -27,8 +29,10 @@ const reducer = (state = { isLoading: true, posts: [] }, action) => {
         ...state,
         posts: action.payload,
       };
+    case FETCH_POST:
+      return { ...state, post: action.payload };
     case CREATE:
-      return { ...state, posts: [...state, action.payload] };
+      return { ...state, posts: [...state.posts, action.payload] };
     case UPDATE:
       return {
         ...state,
@@ -36,6 +40,16 @@ const reducer = (state = { isLoading: true, posts: [] }, action) => {
           post._id == action.payload._id ? action.payload : post
         ),
       };
+    case COMMENT: 
+      return {
+        ...state,
+        posts: state.posts.map((post) => {
+          if(post._id === action.payload._id) {
+            return action.payload
+          }
+          return post
+        })
+      }
     case DELETE:
       return {
         ...state,
