@@ -1,2 +1,2 @@
-[install]
-    command = "npm run install"
+[build]
+    command = "npm run install && npm run build"
