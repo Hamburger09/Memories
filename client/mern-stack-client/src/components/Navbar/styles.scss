@@ -1,0 +1,68 @@
+//   heading: {
+//     color: theme.palette.primary.main,
+//     textDecoration: 'none',
+//     fontSize: '2em',
+//     fontWeight: 300,
+//   },
+
+
+//   purple: {
+//     color: theme.palette.getContrastText(deepPurple[500]),
+//     backgroundColor: deepPurple[500],
+//   },
+// }));
+.navBar {
+  border-radius: 15px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+}
+.navBar__userName {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.navBar__logout {
+    margin-left: 20px;
+}
+
+.navBar__brandContainer {
+  display: flex;
+  align-items: center;
+}
+.navBar__image {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.navBar__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 400px;
+}
+.navBar__profile {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  align-items: center;
+}
+.purple {
+    color: purple;
+    background-color: purple;
+}
+@media only screen and (max-width: 768px) {
+  .navBar {
+    flex-direction: column !important;
+  }
+  .navBar__toolbar {
+    width: auto;
+  }
+  .navBar__profile {
+    width: auto;
+    margin-top: 20px;
+    justtify-content:center;
+  }
+}

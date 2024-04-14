@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import useStyles from "./styles";
+import  "./styles.scss";
 
 import {
   Button,
@@ -8,12 +8,12 @@ import {
   CardContent,
   CardMedia,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
+import DeleteIcon from "@mui/icons-material/Delete";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import ThumbUpAltOutlined from "@mui/icons-material/ThumbUpAltOutlined";
 import moment from "moment";
 
 import { useDispatch } from "react-redux";
@@ -26,7 +26,6 @@ import { useState } from "react";
 // eslint-disable-next-line react/prop-types
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
-  const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
   const navigate = useNavigate();
 
@@ -61,7 +60,6 @@ const Post = ({ post, setCurrentId }) => {
       </>
     );
   };
-  console.log(post)
 
   const userId = user?.result.id || user?.result?._id
 
@@ -87,30 +85,30 @@ const Post = ({ post, setCurrentId }) => {
   };
   return (
     <Card
-      className={classes.card}
+      className="card"
       raised
       elevation={6}
       style={{ cursor: "pointer" }}>
       <div onClick={openPost}>
         <CardMedia
-          className={classes.media}
+          className="media"
           image={post.selectedFile}
           title={post.title}
         />
 
-        <div className={classes.overlay}>
+        <div className="card__overlay">
           <Typography variant="h6">{post.name}</Typography>
           <Typography variant="body2">
             {moment(post.createdAt).fromNow()}
           </Typography>
         </div>
 
-        <div className={classes.details}>
+        <div className="card__details">
           <Typography variant="body2" color="textSecondary">
             {post.tags.map((tag) => `#${tag} `)}
           </Typography>
         </div>
-        <Typography className={classes.title} variant="h5" gutterBottom>
+        <Typography className="card__title" variant="h5" gutterBottom>
           {post.title}
         </Typography>
         <CardContent>
@@ -121,7 +119,7 @@ const Post = ({ post, setCurrentId }) => {
       </div>
       {(user?.result.id === post?.creator ||
         user?.result._id === post?.creator) && (
-        <div className={classes.overlay2}>
+        <div className="card__overlay2">
           <Button
             style={{ color: "white" }}
             size="small"
@@ -131,7 +129,7 @@ const Post = ({ post, setCurrentId }) => {
         </div>
       )}
 
-      <CardActions className={classes.cardActions}>
+      <CardActions className="card__cardActions">
         <Button
           size="small"
           color="primary"

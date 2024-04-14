@@ -1,7 +1,7 @@
-import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Avatar, Button, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import useStyles from "./styles";
+import "./styles.scss";
 
 import { useEffect, useState } from "react";
 import memoriesLogo from "../../images/memories-Logo.png";
@@ -9,14 +9,12 @@ import memoriesText from "../../images/memories-Text.png";
 
 import { useDispatch } from "react-redux";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation,  } from "react-router-dom";
 
 import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
-  const classes = useStyles();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -45,31 +43,31 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
-      <Link className={classes.brandContainer} to="/">
+    <AppBar className="navBar" position="static" color="inherit">
+      <Link className="navBar__brandContainer" to="/">
        <img src={memoriesText} alt="icon" height="45px" />
         <img
-          className={classes.image}
+          className="navBar__image"
           src={memoriesLogo}
           alt="memories"
           height="40px"
         />
       </Link>
-      <Toolbar className={classes.toolbar}>
+      <Toolbar className="navBar__toolbar">
         {user ? (
-          <div className={classes.profile}>
+          <div className="navBar__profile">
             <Avatar
-              className={classes.purple}
+              className="purple"
               alt={user.result.name}
               src={user.result.picture}>
               {user.result.name.charAt(0)}
             </Avatar>
-            <Typography className={classes.userName} variant="h6">
+            <Typography className="navBar__userName" variant="h6">
               {user.result.name}
             </Typography>
             <Button
               variant="contained"
-              className={classes.logout}
+              className="navBar__logout"
               color="secondary"
               onClick={logout}>
               Logout

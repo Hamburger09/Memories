@@ -5,11 +5,11 @@ import {
   Grid,
   Paper,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useState } from "react";
-import useStyles from "./styles";
+import "./styles.scss";
 
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Icon from "./icon";
 
 import Input from "./Input";
@@ -17,7 +17,6 @@ import Input from "./Input";
 import { signIn, signUp } from "../../actions/auth";
 
 import { useGoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +32,6 @@ const initialState = {
 };
 
 const Auth = () => {
-  const classes = useStyles();
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState(initialState);
@@ -88,7 +86,8 @@ const Auth = () => {
   };
 
   const googleLogin = useGoogleLogin({
-    scope:'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+    scope:
+      "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
     auto_select: true,
     onSuccess: googleSuccess,
     onError: googleFailure,
@@ -101,12 +100,12 @@ const Auth = () => {
   // "You have created a new client application that uses libraries for user authentication or authorization that are deprecated. New clients must use the new libraries instead. See the [Migration Guide](https://developers.google.com/identity/gsi/web/guides/gis-migration) for more information."
   return (
     <Container component="main" maxWidth="xs">
-      <Paper className={classes.paper} elevation={3}>
-        <Avatar className={classes.avatar}>
+      <Paper className="paper" elevation={3}>
+        <Avatar className="avatar">
           <LockOutlinedIcon />
         </Avatar>
         <Typography variant="h5">{isSignUp ? "Sign Up" : "Sign In"}</Typography>
-        <form action="" className={classes.form} onSubmit={handleSubmit}>
+        <form action="" className="authForm" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {isSignUp && (
               <>
@@ -153,21 +152,12 @@ const Auth = () => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}>
+            className="authForm__submitButton">
             {isSignUp ? "Sign Up" : "Sign In"}
           </Button>
 
-          {/* <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
-            }}
-            onError={() => {
-              console.log("login failed");
-            }}
-          /> */}
-
           <Button
-            className={classes.googleButton}
+            className="authForm__googleButton"
             color="primary"
             fullWidth
             onClick={() => googleLogin()}

@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useRef, useState } from "react";
 
-import { Button, TextField, Typography } from "@material-ui/core";
+import { Button, TextField, Typography } from "@mui/material";
 
 import { useDispatch } from "react-redux";
 
 import { commentPost } from "../../actions/posts";
 
-import useStyles from "./styles";
+import "./styles.scss";
 
 const CommentSection = ({ post }) => {
-  const classes = useStyles();
   const [comments, setComments] = useState(post?.comments);
   const [comment, setComment] = useState("");
   const dispatch = useDispatch();
@@ -27,8 +26,8 @@ const CommentSection = ({ post }) => {
   };
 
   return (
-    <div className={classes.commentsOuterContainer}>
-      <div className={classes.commentsInnerContainer}>
+    <div className="commentsOuterContainer">
+      <div className="commentsInnerContainer">
         <Typography gutterBottom variant="h6">
           Comments
         </Typography>
@@ -41,7 +40,7 @@ const CommentSection = ({ post }) => {
         <div ref={commentsRef} />
       </div>
       {user?.result?.name ? (
-        <div style={{ width: "70%" }}>
+        <div style={{ width: "50%" }}>
           <Typography gutterBottom variant="h6">
             Write a comment
           </Typography>

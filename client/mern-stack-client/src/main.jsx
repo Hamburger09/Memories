@@ -11,7 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
 
-import "./index.css";
+import "./index.scss";
 
 import {GoogleOAuthProvider} from '@react-oauth/google'
 

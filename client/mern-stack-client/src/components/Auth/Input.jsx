@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Grid, IconButton, InputAdornment, TextField } from "@material-ui/core";
+import { Grid, IconButton, InputAdornment, TextField } from "@mui/material";
 
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const Input = ({
   type,
   label,
