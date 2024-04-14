@@ -5,7 +5,7 @@ import {
   Divider,
   Paper,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import moment from "moment";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -15,9 +15,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import CommentSection from './CommenSection'
 
-import useStyles from "./styles";
+import  "./styles.scss";
 const PostDetails = () => {
-  const classes = useStyles();
   const navigate = useNavigate();
   const { post, posts, isLoading } = useSelector((state) => state.posts);
   const { id } = useParams();
@@ -38,7 +37,7 @@ const PostDetails = () => {
 
   if(isLoading) {
     return (
-      <Paper elevation={6} className={classes.loadingPaper}>
+      <Paper elevation={6} className="loadingPaper">
         <CircularProgress size="7em"/>
       </Paper>
     )
@@ -50,8 +49,8 @@ const PostDetails = () => {
 
   return (
     <Paper style={{padding: '20px', borderRadius: "15px"}} elevation={6}>
-      <div className={classes.card}>
-        <div className={classes.section}>
+      <div className="postDetails__card">
+        <div className="section">
           <Typography variant="h3" component="h2">
             {post.title}
           </Typography>
@@ -70,18 +69,11 @@ const PostDetails = () => {
             {moment(post.createdAt).fromNow()}
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
-          <Typography variant="body1">
-            <strong>Realtime Chat - coming soon!</strong>
-          </Typography>
-          <Divider style={{ margin: "20px 0" }} />
-          <div >
-            <CommentSection post={post}/>
-          </div>
-          <Divider style={{ margin: "20px 0" }} />
+         
         </div>
-        <div className={classes.imageSection}>
+        <div className="imageSection">
           <img
-            className={classes.media}
+            className="postDetails__media"
             src={
               post.selectedFile ||
               "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
@@ -90,11 +82,14 @@ const PostDetails = () => {
           />
         </div>
       </div>
+      <div className="section" >
+            <CommentSection post={post}/>
+          </div>
       {recommendedPosts.length && (
-        <div className={classes.section}>
+        <div className="section">
           <Typography gutterBottom variant="h5">You might also like: </Typography>
           <Divider/>
-          <div className={classes.recommendedPosts}>
+          <div className="recommendedPosts">
             {recommendedPosts.map(({title, message, name, likes, selectedFile, _id}) => (
               <div key={_id} style={{margin: "20px", cursor: "pointer"}} onClick={() => openPost(_id)}>
                 <Typography gutterBottom variant="h6" >{title}</Typography>

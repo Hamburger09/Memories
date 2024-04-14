@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Button, Paper, TextField, Typography } from "@material-ui/core";
+import { Button, Paper, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import useStyles from "./styles";
+import "./styles.scss";
 
 import FileBase64 from "react-file-base64";
 
@@ -11,15 +11,16 @@ import { createPost, updatePost } from "../../actions/posts";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { MuiChipsInput } from "mui-chips-input";
+
 const Form = ({ currentId, setCurrentId }) => {
-  const navigate = useNavigate ()
+  const navigate = useNavigate();
   const post = useSelector((state) => {
     return currentId
       ? state.posts.posts.find((p) => p._id === currentId)
       : null;
   });
 
-  const classes = useStyles();
   const dispatch = useDispatch();
 
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -27,7 +28,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     title: "",
     message: "",
-    tags: "",
+    tags: [],
     selectedFile: "",
   });
   useEffect(() => {
@@ -56,21 +57,28 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if (!user?.result.name) {
     return (
-      <Paper className={classes.paper} elevation={6}>
+      <Paper className="paper" elevation={6}>
         <Typography variant="h6" align="center">
-          Please Sign In to create your own memories and like other's memories.
+          Please Sign In to create your own memories and like other&apos;s
+          memories.
         </Typography>
       </Paper>
     );
   }
 
+  const handleDeleteChip = (tagToDelete) =>
+    setPostData({...postData, tags: postData.tags.filter((tag) => tag !== tagToDelete)});
+  const handleAddChip = (tag) => {
+    setPostData({ ...postData, tags: tag });
+  };
+
   return (
-    <Paper className={classes.paper} elevation={6}>
+    <Paper className="paper" elevation={6}>
       <form
         action=""
         autoComplete="off"
         noValidate
-        className={`${classes.root} ${classes.form}`}
+        className="postsForm"
         onSubmit={handleSubmit}>
         <Typography variant="h6">
           {currentId ? "Editing" : "Creating"} a Memory
@@ -93,17 +101,16 @@ const Form = ({ currentId, setCurrentId }) => {
             setPostData({ ...postData, message: e.target.value })
           }
         />
-        <TextField
+        <MuiChipsInput
           name="tags"
           variant="outlined"
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) =>
-            setPostData({ ...postData, tags: e.target.value.split(",") })
-          }
+          onChange={handleAddChip}
+          onDeleteChip={handleDeleteChip}
         />
-        <div className={classes.fileInput}>
+        <div className="postsForm__fileInput">
           <FileBase64
             type="file"
             multiple={false}
@@ -113,7 +120,7 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
         <Button
-          className={classes.buttonSubmit}
+          className="postsForm__submitButton"
           variant="contained"
           color="primary"
           size="large"

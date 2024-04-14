@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from "react";
 import Post from "./Post/Post";
-import useStyles from "./styles";
+import "./styles.scss";
 
-import { CircularProgress, Grid } from "@material-ui/core";
+import { CircularProgress, Grid } from "@mui/material";
 
 import { useSelector } from "react-redux";
 
@@ -12,14 +11,13 @@ const Posts = ({setCurrentId}) => {
   const {posts, isLoading} = useSelector((state) => {
     return state.posts;
   });
-  const classes = useStyles();
 
   if(!posts.length && !isLoading)return "No posts found"
   return isLoading ? (
     <CircularProgress />
   ) : (
     <Grid
-      className={classes.mainContainer}
+      className="mainContainer"
       container
       alignItems="stretch"
       spacing={3}>

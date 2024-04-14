@@ -1,4 +1,4 @@
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Home/Home";
